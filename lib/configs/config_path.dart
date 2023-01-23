@@ -1,0 +1,3 @@
+enum ConfigPath {
+  profile;
+}
