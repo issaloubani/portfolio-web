@@ -1,3 +1,4 @@
 enum ConfigPath {
-  profile;
+  profile,
+  pages;
 }

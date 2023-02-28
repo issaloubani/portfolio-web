@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: constraints.maxWidth,
       height: constraints.maxHeight,
       child: Row(
