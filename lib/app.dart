@@ -17,6 +17,9 @@ class App extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Portfolio',
+        darkTheme: ThemeData.dark(
+          useMaterial3: true,
+        ).copyWith(),
         // theme: ThemeData(
         //   scrollbarTheme: ScrollbarThemeData(
         //     thumbColor: MaterialStateProperty.all(Colors.black),

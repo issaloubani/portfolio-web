@@ -31,7 +31,6 @@ class _ButtonListState extends State<ButtonList> {
                     child: RichText(
                         text: TextSpan(
                       style: Theme.of(context).textTheme.button!.copyWith(
-                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ),

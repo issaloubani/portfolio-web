@@ -13,9 +13,101 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Positioned(
+          left: 100,
+          top: 100,
+          bottom: 100,
+          child: _LeftElement(),
+        ),
+        Positioned(
+          right: 100,
+          top: 100,
+          bottom: 100,
+          child: _RightElement(),
+        ),
+        Positioned.fill(child: _CenterElement(constraints: constraints)),
+      ],
+    );
+  }
+}
+
+class _RightElement extends StatelessWidget {
+  const _RightElement({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: VerticalDivider(
+        thickness: 1,
+      ),
+    );
+  }
+}
+
+class _LeftElement extends StatelessWidget {
+  const _LeftElement({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Expanded(
+          child: VerticalDivider(
+            thickness: 1,
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Icon(
+          Icons.facebook,
+          size: 30,
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Icon(
+          Icons.email,
+          size: 30,
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Expanded(
+          child: VerticalDivider(
+            thickness: 1,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _CenterElement extends StatefulWidget {
+  final BoxConstraints constraints;
+
+  const _CenterElement({Key? key, required this.constraints}) : super(key: key);
+
+  @override
+  State<_CenterElement> createState() => _CenterElementState();
+}
+
+class _CenterElementState extends State<_CenterElement> {
+  final String name = GlobalConfigs().get("name");
+  final String bio = GlobalConfigs().get("summary");
+
+  @override
+  Widget build(BuildContext context) {
     return SizedBox(
-      width: constraints.maxWidth,
-      height: constraints.maxHeight,
+      width: widget.constraints.maxWidth,
+      height: widget.constraints.maxHeight,
       child: Row(
         children: [
           Expanded(
@@ -26,8 +118,15 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CircleAvatar(
-                    minRadius: 120,
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: AssetImage("assets/images/me.jpeg"),
+                      maxRadius: 120,
+                    ),
                   ),
                   SizedBox(
                     height: 20,
@@ -57,7 +156,7 @@ class HomePage extends StatelessWidget {
                     height: 20,
                   ),
                   SizedBox(
-                    width: constraints.maxWidth * 0.4,
+                    width: widget.constraints.maxWidth * 0.4,
                     child: Text(
                       bio,
                       style: Theme.of(context).textTheme.headline6,
@@ -66,7 +165,11 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     height: 60,
                   ),
-                  ElevatedButton(onPressed: () {}, child: Text("Download"))
+                  ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: Icon(Icons.download),
+                    label: Text("Download CV"),
+                  ),
                 ],
               ),
             ),
