@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:global_configs/global_configs.dart';
 
@@ -166,7 +168,11 @@ class _CenterElementState extends State<_CenterElement> {
                     height: 60,
                   ),
                   ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      AnchorElement anchorElement = AnchorElement(href: "assets/resume/Issa Loubani Resume.pdf");
+                      anchorElement.download = "Issa Loubani Resume.pdf";
+                      anchorElement.click();
+                    },
                     icon: Icon(Icons.download),
                     label: Text("Download CV"),
                   ),

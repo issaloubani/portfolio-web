@@ -42,6 +42,9 @@ dependencies:
   dyn_mouse_scroll: ^1.0.7
   web_smooth_scroll: ^1.1.0
   global_configs: ^1.1.2
+  file_picker: ^5.2.5
+  file_downloader: ^0.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -67,6 +70,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/resume/
     - configs/
   # assets:
   #   - images/a_dot_burr.jpeg

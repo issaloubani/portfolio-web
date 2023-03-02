@@ -4,5 +4,7 @@ class Assets {
 
   static const String configsPages = 'configs/pages.json';
   static const String configsProfile = 'configs/profile.json';
+  static const String imagesMe = 'assets/images/me.jpeg';
+  static const String resume = 'assets/resume/Issa Loubani Resume.pdf';
 
 }
