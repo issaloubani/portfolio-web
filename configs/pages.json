@@ -1,13 +1,23 @@
 {
-  "pages": [
+  "titles": [
     {
       "name": "Home"
     },
     {
-      "name": "Work"
+      "name": "Experience"
     },
     {
-      "name": "Experience"
+      "name": "Work"
     }
-  ]
+  ],
+  "experience": {
+    "work": [
+      {
+        "title": "Apliman"
+      },
+      {
+        "title": "Easysoft"
+      }
+    ]
+  }
 }

@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:ruki_nav_bar/ruki_nav_bar.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
+@Deprecated("Use PageContainer instead")
 class PageList extends StatelessWidget {
   const PageList({
     Key? key,
@@ -55,11 +56,7 @@ class PageList extends StatelessWidget {
               ),
               navItemSpacing: 8,
               navItems: pageProvider.titles.asMap().entries.map((e) {
-                return NavItem(
-                    relativeIndex: e.key,
-                    label: e.value,
-                    activeColor: Colors.blue,
-                    onTap: () => pageProvider.animateToPage(e.key));
+                return NavItem(relativeIndex: e.key, label: e.value, activeColor: Colors.blue, onTap: () => pageProvider.animateToPage(e.key));
               }).toList(),
             ).getNavBar(DeviceType.desktop.currentDevice(constraints.maxWidth));
           },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_website/pages/experience_page.dart';
 import 'package:my_website/pages/home_page.dart';
 import 'package:my_website/widgets/button_list.dart';
 import 'package:global_configs/global_configs.dart';
@@ -59,7 +60,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
-  final pageNameList = GlobalConfigs().get("pages") ?? [];
+  final pageNameList = GlobalConfigs().get("titles") ?? [];
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +73,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
             pageNameList[0]['name'] ?? "Home": () {
               pageContainerKey.currentState?.setContent(HomePage(constraints: pageContainerKey.currentState!.constraints));
             },
-            pageNameList[1]['name'] ?? "Work": () {
+            pageNameList[1]['name'] ?? "Experience": () {
+              pageContainerKey.currentState?.setContent(ExperiencePage(constraints: pageContainerKey.currentState!.constraints));
+            },
+            pageNameList[2]['name'] ?? "Work": () {
               pageContainerKey.currentState?.setContent(ProjectsPage(constraints: pageContainerKey.currentState!.constraints));
             },
           }),
