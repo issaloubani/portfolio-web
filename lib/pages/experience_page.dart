@@ -1,8 +1,11 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
+import 'package:global_configs/global_configs.dart';
 import 'package:my_website/configs/themes.dart';
 
+import '../models/work.dart';
 import '../widgets/button_menu.dart';
+import '../widgets/work_details_widget.dart';
 
 class ExperiencePage extends StatefulWidget {
   final BoxConstraints constraints;
@@ -15,6 +18,9 @@ class ExperiencePage extends StatefulWidget {
 
 class _ExperiencePageState extends State<ExperiencePage> {
   int _selectedIndex = 0;
+  final List<Work> works = (GlobalConfigs().get("experience")['work'] as List)
+      .map((e) => Work.fromJson(e))
+      .toList();
 
   @override
   Widget build(BuildContext context) {
@@ -23,38 +29,43 @@ class _ExperiencePageState extends State<ExperiencePage> {
       height: widget.constraints.maxHeight,
       child: Stack(
         children: [
-          Positioned.fill(
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  RichText(
-                    text: TextSpan(children: [
-                      TextSpan(
-                        text: "02. ",
-                        style: highlightedTitleStyle,
-                      ),
-                      TextSpan(
-                        text: "Where I've worked",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
+          Center(
+            child: Padding(
+              padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.2),
+              child: SizedBox(
+                height: 800,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RichText(
+                      text: TextSpan(children: [
+                        TextSpan(
+                          text: "02. ",
+                          style: highlightedTitleStyle,
                         ),
-                      ),
-                    ]),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: 600,
-                    width: 600,
-                    child: Row(
+                        TextSpan(
+                          text: "Where I've worked",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ]),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ButtonMenu(
+                          width: 320,
+                          works: works,
                           onIndexChanged: (index) {
                             setState(() {
                               _selectedIndex = index;
@@ -64,44 +75,16 @@ class _ExperiencePageState extends State<ExperiencePage> {
                         SizedBox(
                           width: 20,
                         ),
-                        Expanded(
-                            child: ListView(
-                          children: [
-                            Text(
-                              "Software Engineer",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Company Name",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc sit amet aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nunc sit amet aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
-                              style: TextStyle(
-                                fontSize: 14,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                          ],
+                        Flexible(child: WorkDetailsWidget(
+                          work: works[_selectedIndex],
                         )),
                       ],
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      height: 100,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

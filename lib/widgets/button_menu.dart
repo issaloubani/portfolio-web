@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:global_configs/global_configs.dart';
 
+import '../models/work.dart';
+
 class ButtonMenu extends StatefulWidget {
   final Function(int index) onIndexChanged;
+  final List<Work> works;
+  final double width;
 
-  const ButtonMenu({Key? key, required this.onIndexChanged}) : super(key: key);
+  const ButtonMenu({Key? key, required this.onIndexChanged, required this.works, this.width = 200}) : super(key: key);
 
   @override
   State<ButtonMenu> createState() => _ButtonMenuState();
@@ -12,7 +16,6 @@ class ButtonMenu extends StatefulWidget {
 
 class _ButtonMenuState extends State<ButtonMenu> {
   int selectedIndex = 0;
-  List<dynamic> titles = GlobalConfigs().get("experience")['work'];
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +26,17 @@ class _ButtonMenuState extends State<ButtonMenu> {
           topLeft: Radius.circular(20),
         ),*/
           ),
-      width: 200,
+      width: widget.width,
       child: Column(
-        children: titles
+        children: widget.works
             .map(
               (e) => ButtonMenuItem(
-                width: 300,
-                isSelected: selectedIndex == titles.indexOf(e),
-                title: e['title'],
+                width: widget.width,
+                isSelected: selectedIndex == widget.works.indexOf(e),
+                title: e.companyName,
                 onPressed: () {
                   setState(() {
-                    selectedIndex = titles.indexOf(e);
+                    selectedIndex = widget.works.indexOf(e);
                   });
                   widget.onIndexChanged(selectedIndex);
                 },
