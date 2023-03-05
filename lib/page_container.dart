@@ -34,9 +34,25 @@ class PageContainerState extends State<PageContainer> {
         body: LayoutBuilder(
           builder: (context, constraints) {
             this.constraints = constraints;
-            return AnimatedSwitcher(
-              duration: Duration(milliseconds: 500),
-              child: content ?? Container(),
+            return Stack(
+              children: [
+                Positioned(
+                  left: 100,
+                  top: 100,
+                  bottom: 100,
+                  child: _LeftElement(),
+                ),
+                Positioned(
+                  right: 100,
+                  top: 100,
+                  bottom: 100,
+                  child: _RightElement(),
+                ),
+                AnimatedSwitcher(
+                  duration: Duration(milliseconds: 500),
+                  child: content ?? Container(),
+                ),
+              ],
             );
           },
         ));
@@ -85,6 +101,63 @@ class _CustomAppBarState extends State<CustomAppBar> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _RightElement extends StatelessWidget {
+  const _RightElement({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: VerticalDivider(
+        thickness: 1,
+      ),
+    );
+  }
+}
+
+class _LeftElement extends StatelessWidget {
+  const _LeftElement({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Expanded(
+          child: VerticalDivider(
+            thickness: 1,
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Icon(
+          Icons.facebook,
+          size: 30,
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Icon(
+          Icons.email,
+          size: 30,
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Expanded(
+          child: VerticalDivider(
+            thickness: 1,
+          ),
+        ),
+      ],
     );
   }
 }

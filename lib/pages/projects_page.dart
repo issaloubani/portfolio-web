@@ -7,42 +7,40 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: constraints.maxWidth,
-      height: constraints.maxHeight,
-      child: Container(
-        margin: const EdgeInsets.all(30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        // TODO: Create a page for project showcase, still under dev for now
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Projects",
-              style: Theme.of(context).textTheme.headline3,
-            ),
+            Icon(Icons.build, color: Colors.greenAccent),
             SizedBox(
-              height: 20,
+              width: 20,
             ),
-            GridView.extent(
-              shrinkWrap: true,
-              maxCrossAxisExtent: 600,
-              childAspectRatio: 12 / 6,
-              mainAxisSpacing: 20,
-              children: [
-                ProjectTile(constraints: constraints),
-                ProjectTile(constraints: constraints),
-                ProjectTile(constraints: constraints),
-                ProjectTile(constraints: constraints),
-                ProjectTile(constraints: constraints),
-                ProjectTile(constraints: constraints),
-                ProjectTile(constraints: constraints),
-                ProjectTile(constraints: constraints),
-                ProjectTile(constraints: constraints),
-                ProjectTile(constraints: constraints),
-              ],
-            ),
+            Text('Still Under development',style: Theme.of(context).textTheme.headline4!.copyWith(color: Colors.white),),
           ],
         ),
-      ),
+        /*GridView.extent(
+          shrinkWrap: true,
+          maxCrossAxisExtent: 600,
+          childAspectRatio: 12 / 6,
+          mainAxisSpacing: 20,
+          children: [
+            ProjectTile(constraints: constraints),
+            ProjectTile(constraints: constraints),
+            ProjectTile(constraints: constraints),
+            ProjectTile(constraints: constraints),
+            ProjectTile(constraints: constraints),
+            ProjectTile(constraints: constraints),
+            ProjectTile(constraints: constraints),
+            ProjectTile(constraints: constraints),
+            ProjectTile(constraints: constraints),
+            ProjectTile(constraints: constraints),
+          ],
+        ),*/
+      ],
     );
   }
 }

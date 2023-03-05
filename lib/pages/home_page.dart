@@ -5,10 +5,7 @@ import 'package:global_configs/global_configs.dart';
 
 class HomePage extends StatelessWidget {
   final BoxConstraints constraints;
-  final String name = GlobalConfigs().get("name");
-  final String bio = GlobalConfigs().get("summary");
-
-  HomePage({
+  const HomePage({
     Key? key,
     required this.constraints,
   }) : super(key: key);
@@ -17,76 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Positioned(
-          left: 100,
-          top: 100,
-          bottom: 100,
-          child: _LeftElement(),
-        ),
-        Positioned(
-          right: 100,
-          top: 100,
-          bottom: 100,
-          child: _RightElement(),
-        ),
         Positioned.fill(child: _CenterElement(constraints: constraints)),
-      ],
-    );
-  }
-}
-
-class _RightElement extends StatelessWidget {
-  const _RightElement({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: VerticalDivider(
-        thickness: 1,
-      ),
-    );
-  }
-}
-
-class _LeftElement extends StatelessWidget {
-  const _LeftElement({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Expanded(
-          child: VerticalDivider(
-            thickness: 1,
-          ),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Icon(
-          Icons.facebook,
-          size: 30,
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Icon(
-          Icons.email,
-          size: 30,
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Expanded(
-          child: VerticalDivider(
-            thickness: 1,
-          ),
-        ),
       ],
     );
   }
@@ -152,7 +80,9 @@ class _CenterElementState extends State<_CenterElement> {
                 children: [
                   Text(
                     name,
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme.of(context).textTheme.headline4!.copyWith(
+                          color: Colors.greenAccent,
+                        ),
                   ),
                   SizedBox(
                     height: 20,
