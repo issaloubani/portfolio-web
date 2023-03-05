@@ -31,7 +31,7 @@
       {
         "title": "Flutter Developer",
         "company_name": "Easysoft LB",
-        "description": "As a Flutter mobile developer, I was responsible for developing high-quality mobile applications for both iOS and Android platforms using the Flutter framework. I worked collaboratively with cross-functional teams, including designers and product managers, to ensure that the applications met user needs and requirements.In addition to mobile application development, I also created and maintained libraries in Flutter that can be used by other developers to contribute to the open-source community. I was also responsible for publishing the developed applications to both iOS and Android app stores and ensuring compliance with app store guidelines.",
+        "description": "As a Flutter mobile developer, I was responsible for developing high-quality mobile applications for both iOS and Android platforms using the Flutter framework. I worked collaboratively with cross-functional teams, including designers and product managers, to ensure that the applications met user needs and requirements.In addition to mobile application development, I also created and maintained libraries in Flutter that can be used by other developers to contribute to the open-source community.",
         "date": "September 2021 - September 2022",
         "company_location": "Beirut, Lebanon",
         "company_website": "https://www.easysoft.com.lb",
@@ -39,7 +39,6 @@
         "responsibilities": [
           "Develop and maintain high-quality mobile applications using Flutter framework for both iOS and Android platforms.",
           "Write efficient, clean, and maintainable code that adheres to coding standards and best practices.",
-          "Collaborate with cross-functional teams including designers, product managers, and QA engineers to implement and iterate on features that meet user needs and requirements.",
           "Create and maintain libraries in Flutter that can be used by other developers to contribute to the open-source community.",
           "Debug and troubleshoot issues reported by users or the QA team, and propose and implement effective solutions.",
           "Publish developed applications to both iOS and Android app stores and ensure compliance with app store guidelines and regulations."

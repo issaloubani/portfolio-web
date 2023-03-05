@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:my_website/pages/experience_page.dart';
 import 'package:my_website/pages/home_page.dart';
 import 'package:my_website/widgets/button_list.dart';
 import 'package:global_configs/global_configs.dart';
 import 'pages/projects_page.dart';
+import 'dart:html' as html;
 
 final GlobalKey<PageContainerState> pageContainerKey = GlobalKey();
 
@@ -138,16 +140,31 @@ class _LeftElement extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        Icon(
-          Icons.facebook,
-          size: 30,
+        Tooltip(
+          message: "Instagram",
+          preferBelow: false,
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () {
+                html.window.open("https://www.instagram.com/issa.loubani.5/", "issa.loubani.5");
+              },
+              child: Icon(
+                Ionicons.logo_instagram,
+                size: 30,
+              ),
+            ),
+          ),
         ),
         SizedBox(
           height: 20,
         ),
-        Icon(
-          Icons.email,
-          size: 30,
+        Tooltip(
+          message: "issa.loubani.5@gmail.com",
+          child: Icon(
+            Icons.email,
+            size: 30,
+          ),
         ),
         SizedBox(
           height: 20,
