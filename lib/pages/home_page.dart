@@ -3,6 +3,9 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:global_configs/global_configs.dart';
+import 'package:ionicons/ionicons.dart';
+
+import '../configs/themes.dart';
 
 class HomePage extends StatelessWidget {
   final BoxConstraints constraints;
@@ -67,11 +70,42 @@ class _CenterElementState extends State<_CenterElement> {
                     "Fullstack Developer",
                     style: Theme.of(context).textTheme.headline5,
                   ),
-                  TextButton(
-                      onPressed: () {
-                        html.window.open("https://www.linkedin.com/in/issa-loubani-6195a5200/","linkedin");
-                      },
-                      child: Text("LinkedIn"))
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      html.window.open("https://www.linkedin.com/in/issa-loubani-6195a5200/", "linkedin");
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Linked",
+                              style: Theme.of(context).textTheme.button!.copyWith(color: Colors.blue),
+                            ),
+                            WidgetSpan(child: SizedBox(width: 5)),
+                            WidgetSpan(
+                              child: Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                  color: Colors.blue,
+                                  borderRadius: BorderRadius.circular(2),
+                                ),
+                                child: Center(
+                                  child: Text("In",style: Theme.of(context).textTheme.button!.copyWith(color: Colors.white),),
+                                )
+                              )
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -84,6 +118,25 @@ class _CenterElementState extends State<_CenterElement> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  RichText(
+                    text: TextSpan(children: [
+                      TextSpan(
+                        text: "01. ",
+                        style: highlightedTitleStyle,
+                      ),
+                      TextSpan(
+                        text: "Who am I ...",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ]),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
                     name,
                     style: Theme.of(context).textTheme.headline4!.copyWith(
@@ -101,7 +154,7 @@ class _CenterElementState extends State<_CenterElement> {
                     ),
                   ),
                   SizedBox(
-                    height: 60,
+                    height: 20,
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
@@ -111,6 +164,9 @@ class _CenterElementState extends State<_CenterElement> {
                     },
                     icon: Icon(Icons.download),
                     label: Text("Download CV"),
+                  ),
+                  SizedBox(
+                    height: 100,
                   ),
                 ],
               ),
