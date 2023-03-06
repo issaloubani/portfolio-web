@@ -4,6 +4,7 @@ import 'package:my_website/pages/experience_page.dart';
 import 'package:my_website/pages/home_page.dart';
 import 'package:my_website/widgets/button_list.dart';
 import 'package:global_configs/global_configs.dart';
+import 'common/utils.dart';
 import 'pages/projects_page.dart';
 import 'dart:html' as html;
 
@@ -41,14 +42,24 @@ class PageContainerState extends State<PageContainer> {
                 Positioned(
                   left: 100,
                   top: 100,
-                  bottom: 100,
+                  bottom: 200,
                   child: _LeftElement(),
                 ),
                 Positioned(
                   right: 100,
                   top: 100,
-                  bottom: 100,
+                  bottom: 200,
                   child: _RightElement(),
+                ),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      return _BottomElement(width: constraints.maxWidth);
+                    },
+                  ),
                 ),
                 AnimatedSwitcher(
                   duration: Duration(milliseconds: 500),
@@ -175,6 +186,34 @@ class _LeftElement extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _BottomElement extends StatelessWidget {
+  final double width;
+  final String footerText = GlobalConfigs().get("footer") ?? "Developed & Designed by Issa Loubani using Flutter\n2023";
+
+  _BottomElement({Key? key, required this.width}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: darken(Theme.of(context).scaffoldBackgroundColor, 0.04),
+      width: width,
+      height: 100,
+      child: Center(
+        child: Text(
+          footerText,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w300,
+            fontStyle: FontStyle.italic,
+            color: darken(Colors.white, 0.2),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ),
     );
   }
 }

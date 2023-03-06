@@ -1,3 +1,4 @@
+import 'dart:html' as html;
 import 'dart:html';
 
 import 'package:flutter/material.dart';
@@ -5,6 +6,7 @@ import 'package:global_configs/global_configs.dart';
 
 class HomePage extends StatelessWidget {
   final BoxConstraints constraints;
+
   const HomePage({
     Key? key,
     required this.constraints,
@@ -65,7 +67,11 @@ class _CenterElementState extends State<_CenterElement> {
                     "Fullstack Developer",
                     style: Theme.of(context).textTheme.headline5,
                   ),
-                  TextButton(onPressed: () {}, child: Text("LinkedIn"))
+                  TextButton(
+                      onPressed: () {
+                        html.window.open("https://www.linkedin.com/in/issa-loubani-6195a5200/","linkedin");
+                      },
+                      child: Text("LinkedIn"))
                 ],
               ),
             ),
