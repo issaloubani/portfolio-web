@@ -16,7 +16,7 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => PageProvider()),
       ],
       child: MaterialApp(
-        title: 'Portfolio',
+        title: 'Issa Loubani Website',
         darkTheme: ThemeData.dark(
           useMaterial3: true,
         ).copyWith(),
